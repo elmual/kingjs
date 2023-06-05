@@ -22,6 +22,32 @@ const movieDB = {
     ]
 };
 
+const reklam = document.querySelectorAll('.promo__adv img');
+const janr = document.querySelector('.promo__genre');
+const bgImage = document.querySelector('.promo__bg');
+const kinolar = document.querySelector('.promo__interactive-list');
+
+reklam.forEach(item => {
+    item.remove();
+});
+
+janr.textContent = 'DRAMA';
+
+bgImage.style.backgroundImage = 'url(../img/bg.jpg)';
+
+kinolar.innerHTML = '';
+
+movieDB.movies.sort();
+
+movieDB.movies.forEach((kino, i) => {
+    kinolar.innerHTML += `
+        <li class="promo__interactive-item">${i+1}. ${kino} 
+            <div class="delete"></div>
+        </li>
+    
+    `
+})
+
 
 
 
